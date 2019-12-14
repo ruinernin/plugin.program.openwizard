@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - run: |
-          sed -i "s/name=\"[COLOR limegreen][B]Open[\/B][\/COLOR]Wizard\" version=\"CURRENT_VERSION\"/name=\"[COLOR limegreen][B]Open[\/B][/COLOR]Wizard\" version=\"${CIRCLE_TAG-0.0.$CIRCLE_BUILD_NUM}\"/" ./plugin.program.openwizard/addon.xml
-          zip -Xr /tmp/plugin.program.openwizard.zip plugin.video.openwizard
+          sed -i "s/version=\"CURRENT_VERSION\"/version=\"${CIRCLE_TAG-0.0.$CIRCLE_BUILD_NUM}\"/" ./plugin.program.openwizard/addon.xml
+          zip -Xr /tmp/plugin.program.openwizard.zip plugin.program.openwizard
       - store_artifacts:
           path: /tmp/plugin.program.openwizard.zip
       - persist_to_workspace:
